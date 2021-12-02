@@ -1,0 +1,45 @@
+package com.casestudy.CartService.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.casestudy.CartService.model.Cart;
+import com.casestudy.CartService.repository.CartRepository;
+
+public class CartserviceImpl implements CartService {
+	
+	@Autowired
+	CartRepository cartrepository;
+
+	@Override
+	public Cart getCartById(int cardId) {
+		
+		return cartrepository.findByCartId(cardId);
+	}
+
+	@Override
+	public Cart updateCart(Cart cart) {
+		
+		return cartrepository.save(cart);
+	}
+
+	@Override
+	public List<Cart> getAllcarts(Cart cart) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double cartTotal(Cart cart) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Cart addCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

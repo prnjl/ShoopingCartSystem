@@ -1,0 +1,52 @@
+package com.casestudy.CartService.model;
+
+import java.util.Objects;
+
+public class Cart {
+
+	private int cardId;
+	private double totalPrice;
+	
+	public int getCardId() {
+		return cardId;
+	}
+	public void setCardId(int cardId) {
+		this.cardId = cardId;
+	}
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public Cart(int cardId, double totalPrice) {
+		super();
+		this.cardId = cardId;
+		this.totalPrice = totalPrice;
+	}
+	public Cart() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Cart [cardId=" + cardId + ", totalPrice=" + totalPrice + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(cardId, totalPrice);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cart other = (Cart) obj;
+		return cardId == other.cardId
+				&& Double.doubleToLongBits(totalPrice) == Double.doubleToLongBits(other.totalPrice);
+	}
+	
+	
+}

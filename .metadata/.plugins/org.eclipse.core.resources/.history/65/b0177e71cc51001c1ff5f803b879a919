@@ -1,0 +1,6 @@
+package com.casestudy.model;
+
+public enum Role {
+
+	customer, deliveryAgent,merchant;
+}

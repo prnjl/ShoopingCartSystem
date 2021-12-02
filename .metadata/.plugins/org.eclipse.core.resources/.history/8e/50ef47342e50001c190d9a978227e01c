@@ -1,0 +1,23 @@
+package com.casestudy.daolayer;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.casestudy.model.UserProfile;
+
+public interface ProfileService {
+	
+	public UserProfile addNewCustomerProfile(UserProfile userprofile);
+	public UserProfile updateProfile();
+	public List <UserProfile> getAllProfiles(); 
+	public String getByProfile();
+	public  String deleteProfile(String id);
+	public  UserProfile addNewMerchantProfile( UserProfile userprofile);
+	public UserProfile addNewDeliverProfile(UserProfile userprofile);
+	public Optional<UserProfile> findByMobileNo(Long mobileNo);
+	public String getByUserName();
+	
+	UserProfile updateProfile(UserProfile userprofile);
+	
+
+}

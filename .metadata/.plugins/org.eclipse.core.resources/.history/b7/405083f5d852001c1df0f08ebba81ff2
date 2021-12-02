@@ -1,0 +1,63 @@
+package com.casestudy.CartService.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Items {
+
+	private String productName;
+	private double price;
+	
+	private List<Items> items= new ArrayList<>();
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public List<Items> getItems() {
+		return items;
+	}
+	public void setItems(List<Items> items) {
+		this.items = items;
+	}
+	public Items(String productName, double price, List<Items> items) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.items = items;
+	}
+	public Items() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Items [productName=" + productName + ", price=" + price + ", items=" + items + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(items, price, productName);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Items other = (Items) obj;
+		return Objects.equals(items, other.items)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
+				&& Objects.equals(productName, other.productName);
+	}
+	
+	
+}

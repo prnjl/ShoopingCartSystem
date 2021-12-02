@@ -1,0 +1,5 @@
+package com.casestudy.CartService.model;
+
+public class Items {
+
+}

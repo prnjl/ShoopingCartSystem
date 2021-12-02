@@ -1,0 +1,27 @@
+package com.casestudy.service;
+
+import java.util.List;
+
+import com.casestudy.model.Product;
+
+public interface ProductService {
+
+	 
+		List<Product> getAllProducts();
+
+		List<Product> getProductByName(String productName);
+
+		List<Product> getProductByCategory(String category);
+
+		List<Product> getProductByType(String productType);
+
+		
+		
+		//Only for admin
+		
+		Product addProduct(Product product);
+		
+		public Product updateProduct(Product product, String productName);
+
+		Product deleteByProductName(String productName);
+}

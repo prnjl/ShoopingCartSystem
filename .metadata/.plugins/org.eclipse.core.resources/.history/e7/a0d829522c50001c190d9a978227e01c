@@ -1,0 +1,5 @@
+package com.casestudydaolayer;
+
+public interface ProfileService {
+
+}

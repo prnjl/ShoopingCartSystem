@@ -1,0 +1,13 @@
+package com.casestudy.CartService.service;
+
+import com.casestudy.CartService.model.Cart;
+
+public interface CartService {
+	
+	public Cart getCartById(int cardId);
+	
+	public 
+	
+	
+
+}

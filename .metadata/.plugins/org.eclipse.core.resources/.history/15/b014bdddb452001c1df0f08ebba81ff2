@@ -1,8 +1,0 @@
-package com.casestudy.CartService.service;
-
-public interface CartService {
-	
-	
-	
-
-}

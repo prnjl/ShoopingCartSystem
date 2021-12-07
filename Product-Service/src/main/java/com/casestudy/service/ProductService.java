@@ -9,16 +9,10 @@ public interface ProductService {
 
 	 
 	   
-	List<Product> getAllProducts();                              //for admin and user both
+	List<Product> getAllProducts();
 	Optional<Product> getProductById(int productId);
+	Product addProduct(Product product);
+	String updateProduct(Product product , int productId);
+	String deleteByProductId(Product product , int productId);
 	
-	
-	Product addProduct(Product product);                           //for admin
-	String updateProduct(Product product , int productId);          //for admin
-	String deleteByProductId(Product product , int productId);         //for admin
-	
-	List<Product> getProductByName(String productName);             //for admin and user both
-	List<Product> getProductByCategory(String category);             //for admin and user both
-	List<Product> getProductByType(String productType);             //for admin and user both
-
 }

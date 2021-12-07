@@ -1,7 +1,0 @@
-server:
-  port: 8985
-  
-spring:  cloud:    gateway:      routes:      - id: product-service
-        uri:          http://localhost:8761/  #Respective microservice URL which
-        predicates:        - path=/userprofile/**
-      

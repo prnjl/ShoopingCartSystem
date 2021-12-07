@@ -1,5 +1,0 @@
-package com.casestudy.exception;
-
-public class BusinessException {
-
-}

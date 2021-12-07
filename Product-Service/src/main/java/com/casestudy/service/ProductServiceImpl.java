@@ -71,32 +71,4 @@ public class ProductServiceImpl implements ProductService{
 			throw new ProductNotFoundException("647" ,"Product Not Found");
 		}
 	}
-	
-	@Override
-	public List<Product> getProductByName(String productName){
-		
-		return productRepository.findByProductName(productName);
-	}
-	
-	@Override
-	public List<Product> getProductByCategory(String category){
-		
-		return productRepository.findByCategory(category);
-		
-	}
-	
-	@Override
-	public List<Product> getProductByType(String productType){
-		
-		return productRepository.findByProductType(productType);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

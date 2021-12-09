@@ -96,6 +96,14 @@ public class Orders {
 	public Orders() {
 		super();
 	}
+	public Orders(int i, String string, int j, double d, String string2, String string3, int k, int l, String string4,
+			int m, String string5, int n, int o, String string6, String string7, int p) {
+		// TODO Auto-generated constructor stub
+	}
+	public Orders(int orderId2, int i, int customerId2, double amountPaid2, String modeOfPayment2, String orderStatus2,
+			int quantity2, List<Product> asList, List<Address> asList2) {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Orders [orderId=" + orderId + ", orderDate=" + orderDate + ", customerId=" + customerId

@@ -85,6 +85,10 @@ public class Product {
 		public Product() {
 			super();
 		}
+		public Product(int productId2, String productType2, String productName2, String category2, String image2, int i,
+				int rating2, String description2) {
+			// TODO Auto-generated constructor stub
+		}
 		@Override
 		public String toString() {
 			return "Product [productId=" + productId + ", productType=" + productType + ", productName=" + productName

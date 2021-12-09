@@ -24,32 +24,73 @@ public class ProductController {
 		@Autowired
 		ProductService productService;
 
+		//for fetching all product
+		
 		@GetMapping("/getallProduct")
 		public List<Product> getAllProducts() {
 			return productService.getAllProducts();
 		}
+		
+		//for getting product by id
+		
+		
 		@GetMapping("/getProductById/{productId}")
 		public Optional<Product> getProductById(@PathVariable int productId){
 			
 			return productService.getProductById(productId);
 		}
+		
+		//adding the product
+		
 		@PostMapping("/addProduct")
 		public Product addProduct(@RequestBody Product product) {
 			
 			return productService.addProduct(product);
 		}
+
+		//for updating the product by id
 		
 		@PutMapping("/updateProduct/{productId}")
 		public String updateProduct(@RequestBody Product product,@PathVariable int productId ) {
 			return productService.updateProduct(product, productId);
 		}
 		
+		//for deleting the product by id
 		
 		@DeleteMapping("/deleteProductById/{productId}")
 		public String deleteByProductId(@RequestBody Product product,@PathVariable ("productId") int productId) {
 			
 			return productService.deleteByProductId(product, productId);
 		}
+		
+		//getting the product by its name
+		
+		@GetMapping("/findAllProducts/{productName}")
+		public List<Product> getProductByName(@PathVariable String productName) {
+			
+			return productService.getProductByName(productName);
+		}
+
+		
+		//getting the product by its catagory
+		
+		  @GetMapping("/Category/{category}")
+		  
+		  public List<Product>   getProductByCategory(@PathVariable String category){
+		  
+		  return productService.getProductByCategory(category); 
+		  
+		  }
+		  
+		//getting the product by its type
+		  
+		  
+		  @GetMapping("Type/{productType}")
+		  public List<Product> getProductByType(@PathVariable String productType){
+		  
+		  return productService.getProductByType(productType);
+		  }
+		
 		
 			
 }

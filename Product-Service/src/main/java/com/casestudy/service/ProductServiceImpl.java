@@ -71,4 +71,51 @@ public class ProductServiceImpl implements ProductService{
 			throw new ProductNotFoundException("647" ,"Product Not Found");
 		}
 	}
+	
+	
+	@Override
+	public List<Product> getProductByName(String productName) {
+		
+		List<Product> name= productRepository.findByProductName(productName);
+		if(name.isEmpty()) {
+			throw new ProductNotFoundException("987", "not Found !!");
+		}
+		else {
+           return name;
+		}
+}
+	@Override
+	public List<Product> getProductByCategory(String category){
+		
+		List<Product> catagory= productRepository.findByCategory(category);
+		
+		if(catagory.isEmpty()) {
+			throw new ProductNotFoundException("425", "cataory is not found");
+		}
+		else {
+			return catagory;
+		}
+	}
+	
+	
+	@Override
+	public List<Product> getProductByType(String productType){
+		
+		List<Product> type= productRepository.findByProductType(productType);
+		if(type.isEmpty()) {
+			throw new ProductNotFoundException("425", "type is not found");
+		}
+		else {
+			return type;
+		}
+	}
+	
+	@Override
+	public Product deleteByProductName(String productName) {
+		
+		return productRepository.deleteByProductName(productName);
+	}
+	
+	
+	
 }

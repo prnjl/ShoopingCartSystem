@@ -1,5 +1,6 @@
 package com.casestudy.controller;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,41 +21,40 @@ import com.casestudy.service.CartService;
 @RequestMapping("/api/cart")
 public class CartController {
 
-	
 	@Autowired
-    CartService cartService;
-    
-  //save the Cart
+	CartService cartService;
+	
+	//adds item the Cart
   	@PostMapping("/addCart")
   	public Cart addCart(@RequestBody Cart cart) {
   		return  cartService.addCart(cart);
   	}
   	
-  	//find all Cart
-  	@GetMapping("/findAllCart")
-  	public List<Cart> getAllCart(){
-  		return cartService.getAllCart();
+  	//GET all Carts details
+  	@GetMapping("/getallcarts")
+  	public List<Cart> getAllCarts(){
+  		return cartService.getAllCarts();
   	}
   	
-  	//find the Cart by id
-  	@GetMapping("/findCartBy/{cartId}")
-  	public Optional<Cart> getCartDetails(@PathVariable  int cartId){
+  	//Get the cart details
+  	@GetMapping("/getallcartdetails/{cartId}")
+  	public Optional<Cart> getCartById(@PathVariable int cartId){
   		return cartService.getCartById(cartId);
   	}
   	
-  	//delete the Cart by id
+  	//delete the cart details using ID
+  	
   	@DeleteMapping("/delete/{cartId}")
   	public String deleteCartDetails(@PathVariable int cartId) {
   		cartService.deleteCartDetails(cartId);
-  		 return "Delete Cart with id: "+cartId;
+  		 return "Delete Cart with id: "+ cartId;
   	}
   	
-  	//update the Cart by id
+  	//update the cart by ID
   	@PutMapping("/update/{cartId}")
   	public String updateCartDetails(@RequestBody Cart cart, @PathVariable int cartId) {
   		cartService.updateCartDetails(cart, cartId);
-  		return "Update Cart with id: "+cartId;
+  		return "Update Cart with id: "+ cartId;
   	}
   	
 }
-

@@ -51,6 +51,8 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+
+   
 	
 	//FOR SIGN-IN
 
@@ -92,64 +94,69 @@ public class AuthController {
 					.badRequest()
 					.body(new MessageResponse("Error: Email is already in use!"));
 		}
+	
+	
 		
 		
 
 		// Create new user's account
-		/*
-		 * User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
-		 * encoder.encode(signUpRequest.getPassword()));
-		 */
-		User user = new User();
-		user.setUsername( signUpRequest.getUsername());
-		user.setEmail(signUpRequest.getEmail());
-		user.setPassword(signUpRequest.getPassword());
-		
-		 String  strRoles = signUpRequest.getRoles();
-		
-		System.out.println(strRoles);
-		
-		Set<Role> roles = new HashSet<>();
-
-		if (strRoles == null) {
-	
-		
-					Optional<Role> userRole = roleRepository.findByName("ROLE_CUSTOMER");
-					System.out.println(userRole);
-//				
-//					.orElseThrow(() -> new RuntimeException(" CUSTOMER is not found."));
-//			System.out.println("hello"+userRole);
-//			roles.add(userRole);
-		} else {
+				/*
+				 * User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
+				 * encoder.encode(signUpRequest.getPassword()));
+				 */
+				User user = new User();
+				user.setUsername( signUpRequest.getUsername());
+				user.setEmail(signUpRequest.getEmail());
 			
+				user.setPassword(encoder.encode(signUpRequest.getPassword()));
+				
+				
+				 String  strRoles = signUpRequest.getRoles();
+				
+				System.out.println(strRoles);
+				
+				Set<Role> roles = new HashSet<>();
 
-			Optional<Role> userRole = roleRepository.findByName("ROLE_MERCHANT");
-			System.out.println(userRole);
+				if (strRoles == null) {
 			
-//			strRoles.forEach(role -> {
-//				switch (role) {
-//				case "admin":
-//					Role adminRole = roleRepository.findByName(ERole.ROLE_MERCHANT)
-//							.orElseThrow(() -> new RuntimeException("MERCHANT is not found."));
-//					roles.add(adminRole);
-//
-//					break;
-//				case "mod":
-//					Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
-//							.orElseThrow(() -> new RuntimeException(" MODERATOR is not found."));
-//					roles.add(modRole);
-//
-//					break;
-//				default:
-//					Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
+				
+							Optional<Role> userRole = roleRepository.findByName("USER_CUSTOMER");
+							System.out.println(userRole);
+//						
 //							.orElseThrow(() -> new RuntimeException(" CUSTOMER is not found."));
+//					System.out.println("hello"+userRole);
 //					roles.add(userRole);
-//				}
-//			});
-		}
+				} else {
+					
 
-		user.setRoles(roles);
-		userRepository.save(user);
-		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-	}
-}
+					Optional<Role> userRole = roleRepository.findByName("USER_MERCHANT");
+					System.out.println(userRole);
+					
+//					strRoles.forEach(role -> {
+//						switch (role) {
+//						case "admin":
+//							Role adminRole = roleRepository.findByName(ERole.ROLE_MERCHANT)
+//									.orElseThrow(() -> new RuntimeException("MERCHANT is not found."));
+//							roles.add(adminRole);
+		//
+//							break;
+//						case "mod":
+//							Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
+//									.orElseThrow(() -> new RuntimeException(" MODERATOR is not found."));
+//							roles.add(modRole);
+		//
+//							break;
+//						default:
+//							Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
+//									.orElseThrow(() -> new RuntimeException(" CUSTOMER is not found."));
+//							roles.add(userRole);
+//						}
+//					});
+				}
+
+				user.setRoles(roles);
+				userRepository.save(user);
+				return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+			}
+		}
+	

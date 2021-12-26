@@ -46,7 +46,7 @@ public class PaymentController{
 	        parameters.put("CHECKSUMHASH", checkSum);
 	        modelAndView.addAllObjects(parameters);
 	        return modelAndView;
-	    }
+	    } //has controller to return both model and view into single value 
 	 
 	 
 	 @PostMapping(value = "/pgresponse")

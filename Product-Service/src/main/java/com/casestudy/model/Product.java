@@ -12,16 +12,25 @@ public class Product {
 		
 	    @Id  //primery key will be productId
 		private int productId;
-	
 		private String productType;
-	
 		private String productName;
 		private String category;
 		private String image;
 		private Double price;
 		private int rating;
 		private String description;
+		private int countInStock;
 		
+		public Product(int countInStock) {
+			super();
+			this.countInStock = countInStock;
+		}
+		public int getCountInStock() {
+			return countInStock;
+		}
+		public void setCountInStock(int countInStock) {
+			this.countInStock = countInStock;
+		}
 		public int getProductId() {
 			return productId;
 		}
@@ -89,11 +98,12 @@ public class Product {
 				int rating2, String description2) {
 			// TODO Auto-generated constructor stub
 		}
+		
 		@Override
 		public String toString() {
 			return "Product [productId=" + productId + ", productType=" + productType + ", productName=" + productName
 					+ ", category=" + category + ", image=" + image + ", price=" + price + ", rating=" + rating
-					+ ", description=" + description + "]";
+					+ ", description=" + description + ", countInStock=" + countInStock + "]";
 		}
 		@Override
 		public int hashCode() {

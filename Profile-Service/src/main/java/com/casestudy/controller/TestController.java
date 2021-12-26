@@ -26,34 +26,38 @@ public class TestController {
 	public String allAccess() {
 		return "Public Content.";
 	}
-	
-	@GetMapping("/user")
-	@PreAuthorize("hasRole('CUSTOMER') or hasRole('MODERATOR') or hasRole('MERCHANT')")
-	public String userAccess() {
-		return "User Content.";
-	}
+//	
+//	@GetMapping("/user")
+//	@PreAuthorize("hasRole('USER_CUSTOMER') or hasRole('MODERATOR') or hasRole('MERCHANT')")
+//	public String userAccess() {
+//		return "User Content.";
+//	}
 
-	@GetMapping("/mod")
-	@PreAuthorize("hasRole('MODERATOR')")
-	public String moderatorAccess() {
-		return "Moderator Board.";
-	}
-
-	@GetMapping("/admin")
-	@PreAuthorize("hasRole('MERCHANT')")
-	public String adminAccess() {
-		return "Admin Board.";
-	}
+//	
+//	@GetMapping("/Merchant")
+//	@PreAuthorize("hasRole('MERCHANT')")
+//	public String adminAccess() {
+//		return "MERCHANT Board.";
+//	}
 	
 	@GetMapping("/allUsers")
 	public List<User> getUsers(){
 		return userRepository.findAll();
 	}
+	@GetMapping("/customer")
+	public String userAccess() {
+		return "User Dashboard.";
+	}
 	
+	@GetMapping("/merchant")
+	public String adminAccess() {
+		return "Merchant Dashboard.";
+	}
 	
 	@DeleteMapping("/delete/{id}")
 	public void deleteProduct(@PathVariable String id) {
 		  userRepository.deleteById(id);
 		
 	}
+	
 }
